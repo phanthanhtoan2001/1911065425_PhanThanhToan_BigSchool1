@@ -24,6 +24,11 @@ namespace _1911065425_PhanThanhToan_BigSchool.Models.ViewModels
         {
             return DateTime.Parse(string.Format("{0} {1}", Date, Time));
         }
+        public string Heading { get; set; }
+        public string Action
+        {
+            get { return (Id != 0) ? "Update" : "Create"; }
+        }
 
     }
 }

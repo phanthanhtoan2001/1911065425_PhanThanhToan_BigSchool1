@@ -7,6 +7,6 @@ namespace _1911065425_PhanThanhToan_BigSchool.DTOs
 {
     public class FollowingDto
     {
-        public String FolloweeId { get; set; }
+        public string FolloweeId { get; set; }
     }
 }

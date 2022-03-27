@@ -23,6 +23,7 @@ namespace _1911065425_PhanThanhToan_BigSchool.Models
             Followers = new Collection<Following>();
             Followees = new Collection<Following>();
         }
+       
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -54,17 +55,18 @@ namespace _1911065425_PhanThanhToan_BigSchool.Models
             modelBuilder.Entity<Attendance>().HasRequired(a => a.Course)
                 .WithMany()
                 .WillCascadeOnDelete(false);
-            base.OnModelCreating(modelBuilder);
+          
+
             modelBuilder.Entity<ApplicationUser>()
-               .HasMany(u => u.Followers)
-               .WithRequired(f => f.Followee)
-               .WillCascadeOnDelete(false);
+                .HasMany(u => u.Followers)
+                .WithRequired(f => f.Followee)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ApplicationUser>()
                 .HasMany(u => u.Followees)
                 .WithRequired(f => f.Follower)
                 .WillCascadeOnDelete(false);
-
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

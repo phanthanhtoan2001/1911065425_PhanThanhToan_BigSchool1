@@ -1,14 +1,10 @@
 ﻿@model  _1911065425_PhanThanhToan_BigSchool.Models.ViewModels.CoursesViewModel
-
-
 @{
-    ViewBag.Title = "Home page";
+    ViewBag.Title = "Attending";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-
-<<div class="row">
+<div class="row">
     <ul class="course">
         @foreach (var course in Model.UpcommingCourses)
         {
@@ -26,24 +22,14 @@
             @course.Lecturer.Name
             @if (Model.ShowAction)
             {
-               
-                
-                <button data-user-id="@course.LecturerId" class="btn btn-default btn-sm js-toggle-follow">Following?</button> 
-                  
-
-              }
+<button data-user-id="@course.LecturerId" class="btn btn-default btn-sm js-toggle-follow">Follow?</button>}
         </span>
         <span class="category">
             @course.Category.Name
-        </span>
             @if (Model.ShowAction)
             {
-               
-                
-            <button data-course-id="@course.Id" class="btn btn-sm btn-info">Going?</button> 
-                 
-                }
-       
+<button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>}
+        </span>
     </div>
 
 </li>}

@@ -10,8 +10,10 @@ using System.Web.Http;
 
 namespace _1911065425_PhanThanhToan_BigSchool.Controllers
 {
+    [Authorize]
     public class AttendancesController : ApiController
     {
+
         private ApplicationDbContext _dbContext;
 
         public AttendancesController()
@@ -19,21 +21,23 @@ namespace _1911065425_PhanThanhToan_BigSchool.Controllers
             _dbContext = new ApplicationDbContext();
         }
         [HttpPost]
-        public IHttpActionResult Attend ([FromBody ] int courseID)
+        public IHttpActionResult Attend(AttendanceDto attendanceDto)
         {
-            
+            var userId = User.Identity.GetUserId();
+            if (_dbContext.Attendances.Any(a => a.AttendeeId == userId && a.CourseId == attendanceDto.CourseId))
+                return BadRequest("The Attendance already exists!");
             var attendance = new Attendance
-            
             {
-                CourseId = courseID,
+                CourseId = attendanceDto.CourseId,
                 AttendeeId = User.Identity.GetUserId()
             };
+
             _dbContext.Attendances.Add(attendance);
             _dbContext.SaveChanges();
             return Ok();
         }
-        
-        
-        
+
+
+
     }
 }

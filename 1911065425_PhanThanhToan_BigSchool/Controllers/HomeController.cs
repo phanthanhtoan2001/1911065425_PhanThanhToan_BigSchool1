@@ -25,13 +25,11 @@ namespace _1911065425_PhanThanhToan_BigSchool.Controllers
             var viewModel = new CoursesViewModel
             {
                 UpcommingCourses = upcommingCourses,
-                ShowAction = User.Identity.IsAuthenticated,
-                
-
+                ShowAction = User.Identity.IsAuthenticated
             };
 
 
-            return View(upcommingCourses);
+            return View(viewModel);
         }
 
         public ActionResult About()
