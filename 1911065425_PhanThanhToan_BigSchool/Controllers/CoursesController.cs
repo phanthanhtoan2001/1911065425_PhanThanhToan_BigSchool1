@@ -68,7 +68,7 @@ namespace _1911065425_PhanThanhToan_BigSchool.Controllers
                 .Select(a => a.Course)
                 .Include(l => l.Lecturer)
                 .Include(l => l.Category)
-                .Where(a => a.IsCanceled == false)
+             
                 .ToList();
 
             var viewModel = new CoursesViewModel
@@ -149,5 +149,7 @@ namespace _1911065425_PhanThanhToan_BigSchool.Controllers
 
             return View(viewModel);
         }
+       
+
     }
 }

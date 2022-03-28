@@ -8,45 +8,56 @@
 
 
 
-<<div class="row">
+@using (Html.BeginForm("Index", "Search", FormMethod.Get, new { @class = "form-inline" }))
+{
+    <div class="form-group">
+        <label>Tên Khóa học: </label>
+        <input type="Text" class="form-control mx-sm-3" value="@ViewBag.Keyword" name="searchString" placeholder="Nhập tên khóa học cần tìm">
+        <input type="button" class="btn btn-danger" value="Tìm khóa học">
+    </div>
+    <hr />
+}
+
+<div class="row">
     <ul class="course">
         @foreach (var course in Model.UpcommingCourses)
         {
-<li>
-    <div class="date">
-        <div class="month">
-            @course.DateTime.ToString("MM")
-        </div>
-        <div class="day">
-            @course.DateTime.ToString("dd")
-        </div>
-    </div>
-    <div class="details">
-        <span class="lecturer">
-            @course.Lecturer.Name
-            @if (Model.ShowAction)
-            {
-               
-                
-                <button data-user-id="@course.LecturerId" class="btn btn-default btn-sm js-toggle-follow">Following?</button> 
-                  
+            <li>
+                <div class="date">
+                    <div class="month">
+                        @course.DateTime.ToString("MM")
+                    </div>
+                    <div class="day">
+                        @course.DateTime.ToString("dd")
+                    </div>
+                </div>
+                <div class="details">
+                    <span class="lecturer">
+                        @course.Lecturer.Name
+                        @if (Model.ShowAction)
+                        {
 
-              }
-        </span>
-        <span class="category">
-            @course.Category.Name
-        </span>
-            @if (Model.ShowAction)
-            {
-               
-                
-            <button data-course-id="@course.Id" class="btn btn-sm btn-info">Going?</button> 
-                 
-                }
-       
-    </div>
 
-</li>}
+                            <button data-user-id="@course.LecturerId"type="button" class="btn btn-outline-primary">Following?</button>
+
+
+                        }
+                    </span>
+                    <span class="category">
+                        @course.Category.Name
+                    </span>
+                    @if (Model.ShowAction)
+                    {
+
+
+                        <button data-course-id="@course.Id" type="button" class="btn btn-sm btn-info">Going?</button>
+
+                    }
+
+                </div>
+
+            </li>
+}
 
     </ul>
 </div>

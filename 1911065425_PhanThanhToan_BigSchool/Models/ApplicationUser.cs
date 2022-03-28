@@ -39,6 +39,7 @@ namespace _1911065425_PhanThanhToan_BigSchool.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
         public DbSet<Following> Followings { get; set; }
+      
 
 
         public ApplicationDbContext()

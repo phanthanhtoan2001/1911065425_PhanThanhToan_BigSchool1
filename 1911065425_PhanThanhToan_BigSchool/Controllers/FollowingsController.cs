@@ -45,11 +45,10 @@ namespace _1911065425_PhanThanhToan_BigSchool.Controllers
                 .Include(x => x.Followee)
                 .Include(x => x.Follower).SingleOrDefault();
 
-          
-
-
             return Ok();
         }
+       
+       
 
 
     }

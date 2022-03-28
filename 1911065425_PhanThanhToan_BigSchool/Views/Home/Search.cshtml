@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search</h2>
+@using (Html.BeginForm("Index", "Courses", FormMethod.Get, new { @class = "form-inline" }))
+{
+    <div class="form-group">
+        <label>Tên Khóa học: </label>
+        <input type="Text" class="form-control mx-sm-3" value="@ViewBag.Keyword" name="searchString" placeholder="Nhập tên khóa học cần tìm">
+        <input type="button" class="btn btn-danger" value="Tìm khóa học">
+    </div>
+    <hr />
+}
+

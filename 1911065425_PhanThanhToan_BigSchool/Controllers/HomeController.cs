@@ -31,6 +31,18 @@ namespace _1911065425_PhanThanhToan_BigSchool.Controllers
 
             return View(viewModel);
         }
+       public ActionResult Search(string searchString)
+        {
+            var khoahoc = _dbContext.Courses.Include(b => b.Category);
+           
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                searchString = searchString.ToLower();
+               khoahoc = khoahoc.Where(b => b.Category.Name.Contains(searchString));
+            }
+
+            return View(khoahoc.ToList());
+        }
 
         public ActionResult About()
         {
