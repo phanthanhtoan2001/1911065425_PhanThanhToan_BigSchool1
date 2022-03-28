@@ -23,6 +23,7 @@ namespace _1911065425_PhanThanhToan_BigSchool.Controllers
             culture.DateTimeFormat.ShortDatePattern = "M-dd-yyyy";
             culture.DateTimeFormat.LongTimePattern = "";
             Thread.CurrentThread.CurrentCulture = culture;
+            ////////////////////////////////////
         }
         //
         // GET: /Courses/Create
