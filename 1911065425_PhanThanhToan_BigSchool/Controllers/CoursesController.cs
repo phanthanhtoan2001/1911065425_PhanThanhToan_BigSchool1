@@ -57,6 +57,7 @@ namespace _1911065425_PhanThanhToan_BigSchool.Controllers
             _dbContext.Courses.Add(course);
             _dbContext.SaveChanges();
             return RedirectToAction("Index", "Home");
+            //////////////////////////////
         }
         [Authorize]
         public ActionResult Attending()
